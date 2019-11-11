@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="lt">
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="viewport" content="height=device-height, initial-scale=1">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Tic Tac Toe</title>
+	    <script language="JavaScript" type="text/javascript" src="tictac.js" > </script>
+	</head>
+  <body>
+		<div class = "inputBlock" id = "inputWindow">
+			<input type = "text" id="Player1Name" placeholder="Pirmo žaidėjo vardas:" required> 
+			<input type = "text" id="Player2Name" placeholder="Antro žaidėjo vardas:" required> 	
+			<button id = "submitNames" onclick="submitButton()"> Pradėti </button>
+		</div>
+		<div class = "gameBlock"  id = "gameWindow">
+			<div class ="column">
+				<div id="Player1Text" class = "playerTurn"> </div>
+				<div id="Player2Text" class = "playerTurn right"> </div>
+			</div>	
+			<table id="tictactoeTable">
+			  <tr id="firstRow">
+			    <th onclick = "displayImages(this)" id="1"></th>
+			    <th onclick = "displayImages(this)" id="2"></th>
+			    <th onclick = "displayImages(this)" id="3"></th>
+			  </tr>
+			  <tr id="secondRow">
+			    <td onclick = "displayImages(this)" id="4"></td>
+			    <td onclick = "displayImages(this)" id="5"></td>
+			    <td onclick = "displayImages(this)" id="6"></td>
+			  </tr>
+			  <tr id="thirdRow">
+			    <td onclick = "displayImages(this)" id="7"></td>
+			    <td onclick = "displayImages(this)" id="8"></td>
+			    <td onclick = "displayImages(this)" id="9"></td>
+			  </tr>
+			</table>
+			<div class ="popup" id="myPopup"> </div>
+			<button class ="replayButton" id="replaybtn" onclick="restartGame()"> Žaisti iš naujo</button>
+		</div>
+
+  </body>
+</html>
