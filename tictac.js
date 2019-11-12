@@ -20,10 +20,11 @@ class Player{
 
 
 }
+
+
 Player1 = new Player();
 Player2 = new Player();
 var gameOver = false;
-
 
 function submitButton(){
   var inputWindow = document.getElementById("inputWindow");
@@ -34,8 +35,48 @@ function submitButton(){
   Player2.PName= document.getElementById("Player2Name").value;
   document.getElementById("Player1Text").setAttribute("style", "visibility: visible");
   document.getElementById("Player1Text").innerHTML = Player1.PName+' (X) eilė';
+  document.addEventListener("keydown", keyDown, false);
+}
+
+function keyDown(e) {
+	var keyCode = e.keyCode;
+	var pressedKey;
+	switch(keyCode){
+		case 97:
+			if(document.getElementById("1").innerHTML == "") pressedKey = document.getElementById("1");
+			break;
+		case 98:
+			if(document.getElementById("2").innerHTML == "") pressedKey = document.getElementById("2");
+			break;
+		case 99:
+			if(document.getElementById("3").innerHTML == "") pressedKey = document.getElementById("3");
+			break;
+		case 100:
+			if(document.getElementById("4").innerHTML == "") pressedKey = document.getElementById("4");
+			break;
+		case 101:
+			if(document.getElementById("5").innerHTML == "") pressedKey = document.getElementById("5");
+			break;
+		case 102:
+			if(document.getElementById("6").innerHTML == "") pressedKey = document.getElementById("6");
+			break;
+		case 103:
+			if(document.getElementById("7").innerHTML == "") pressedKey = document.getElementById("7");
+			break;
+		case 104:
+			if(document.getElementById("8").innerHTML == "") pressedKey = document.getElementById("8");
+			break;
+		case 105:
+			if(document.getElementById("9").innerHTML == "") pressedKey = document.getElementById("9");
+			break;
+		default:
+			console.log(keyCode);
+			break;
+		}
+		if(pressedKey != undefined) displayImages(pressedKey);
 }
 function displayImages(element){
+
 	if(gameOver!= true){
 		const elem = document.getElementById(element.id);
 		if(tictac.length %2 == 0){
@@ -44,12 +85,13 @@ function displayImages(element){
 			document.getElementById("Player2Text").setAttribute("style", "visibility: visible");
 			document.getElementById("Player2Text").innerHTML = Player2.PName+' (O) eilė';
 			if(elem.childNodes.length <1){	
-			var img = document.createElement("img");
-			img.setAttribute("style", "max-height:99%; max-width:99%");
-			img.src = "cross.png";
-			elem.appendChild(img);
-			tictac.push("X"+element.id);
+				var img = document.createElement("img");
+				img.setAttribute("style", "max-height:99%; max-width:99%");
+				img.src = "cross.png";
+				elem.appendChild(img);
+				tictac.push("X"+element.id);
 			}
+		
 		}
 		else{
 			document.getElementById("Player2Text").setAttribute("style", "visibility: hidden");
@@ -57,15 +99,15 @@ function displayImages(element){
 			document.getElementById("Player1Text").setAttribute("style", "visibility: visible");
 			document.getElementById("Player1Text").innerHTML = Player1.PName+' (X) eilė';
 			if(elem.childNodes.length <1){	
-	 		var img = document.createElement("img");
-	 		img.setAttribute("style", "max-height:99%; max-width:99%");
-			img.src = "O_red.png";
-			elem.appendChild(img);
-			tictac.push("O"+element.id);
+		 		var img = document.createElement("img");
+		 		img.setAttribute("style", "max-height:99%; max-width:99%");
+				img.src = "O_red.png";
+				elem.appendChild(img);
+				tictac.push("O"+element.id);
 			}
+		
 		}
-		if(tictac.length ==9) checkSymbol(tictac, 'draw', 10);
-		else checkResult(tictac);
+		checkResult(tictac);
 	}
 }
 function checkResult(tictac){
@@ -94,9 +136,8 @@ function checkResult(tictac){
 	if((tictac.includes('O1') == true && tictac.includes('O5') == true && tictac.includes('O9') == true)) checkSymbol(tictac, 'O', 7);
 	if((tictac.includes('O3') == true && tictac.includes('O5') == true && tictac.includes('O7') == true)) checkSymbol(tictac, 'O', 8);
 
-		for(var i in tictac){
-		console.log(tictac[i]);
-	}
+	if(tictac.length == 9 && gameOver!= true) checkSymbol(tictac, 'draw', 10);
+
 }
 function checkSymbol(symbolArray, winner, combination){
 	switch(combination){
@@ -167,7 +208,7 @@ function checkSymbol(symbolArray, winner, combination){
 		replaybtn.setAttribute("style", "visibility: visible");
 		gameOver = true;
 	}
-	else if(winner == 'draw'){
+	else if(winner== 'draw') {
 		document.getElementById("Player2Text").setAttribute("style", "visibility: hidden");
 		document.getElementById("Player1Text").setAttribute("style", "visibility: hidden");
 		var popup = document.getElementById("draw");

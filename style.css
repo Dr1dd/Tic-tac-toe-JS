@@ -18,12 +18,12 @@ input[type=text] {
     border-radius: 4px;
     padding: 1vh;
     margin: 1px auto;
-    width: 72%;
+    width: 94%;
 }
 .inputBlock{
 	margin: 26vh auto;
     background-color: #fff;
-    width: 20%;
+    width: 27%;
     padding: 4vh;
     border-top: 15px solid #36e61cc7;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
@@ -63,7 +63,7 @@ th, td {
     padding: 8px 0;
     position: absolute;
     z-index: 1;
-    bottom: 70%;
+    bottom: 68%;
     left: 50%;
     margin-left: -80px;
 }
@@ -115,7 +115,101 @@ th, td {
     font-size: 17px;
     border-radius: 7px;
     margin: 5px;
+    margin-bottom: 11px;
     padding: 4px 14px;
     text-align: center;
     max-width: 48%;
+}
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (max-width: 565px){
+ table{
+    height: 62vh;
+    width: 92%;
+ }
+ .column{
+    width: 83%;
+    margin: 16% 0vh 8px;
+ }
+ .gameBlock{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 95vh;
+ }
+ .popup{
+    bottom: 82%;
+ }
+ .replayButton{
+    bottom: 4%;
+ }
+ .inputBlock{
+   width: 84%;
+ }
+ input[type =text]{
+    padding: 2vh;
+    font-size: 15pt;
+    margin: 2px auto;
+ }
+ button{
+    padding: 13px;
+    margin: 4px;
+ }
+}
+@media (min-height: 730px){
+    .replayButton{
+        bottom: 9%;
+    }
+    .popup{
+        bottom: 84%;
+    }
+}
+@media all and (min-height: 1000px){
+    button{
+        padding: 13px;
+    }
+    input[type=text]{
+        height:3vh;
+        font-size: 22pt;
+    }
+    table{
+        height: 54vh
+    }
+    .inputBlock{
+        width: 53%;
+    }
+    .column{
+        margin-top: 9vh;
+    }
+    .gameBlock{
+     margin: 11vh auto;
+    background-color: #fff;
+    width: 65vh;
+    height: 73vh;
+    padding: 2vh;
+    }
+    .popup{
+        bottom: 76%;
+    }
+    .replayButton{
+        bottom:14%;
+    }
+}
+@media (max-height: 670px){
+    .popup{
+        bottom:81%;
+        left: 49%;
+    }
+}
+@media (max-height: 570px){
+    .replayButton{
+        bottom: 2%;
+    }
+    .popup{
+        bottom: 79%;
+        width: 45vw;
+    }
 }
